@@ -13,7 +13,7 @@
                     '/shopping-cart' => 'ProjectController@projectsPage',
                 ],
                 'POST' => [
-                    '/sign-in' => 'UserController@validateEmailAndPassword',
+                    '/sign-in' => 'UserController@verifyUser',
                     '/products' => 'UserController@createUser',
                     '/add-product' => 'ProjectController@createProject',
                     '/remove-product' => 'TaskController@createTask',
