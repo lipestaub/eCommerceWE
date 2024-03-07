@@ -1,20 +1,17 @@
 <?php
     namespace controllers;
-    
-    class User {
-        private ?string $email;
-        private ?string $cpf;
 
-        public function __construct(?string $email = null, ?string $cpf = null)
-        {
-            $this->email = $email;
-            $this->cpf = $cpf;
-        }
+use services\RequestWE;
+
+    class User {
+        private array $users = [];
 
         public function verifyUser() {
             $email = $_POST['email'];
             $cpf = $_POST['cpf'];
 
-            
+            $requestWE = new RequestWE();
+
+            $user = $requestWE->getUserByEmailAndCPF($email, $cpf);
         }
     }

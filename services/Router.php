@@ -1,4 +1,8 @@
 <?php
+    namespace services;
+
+    use controllers;
+
     class Router
     {
         private array $routes;
@@ -10,27 +14,25 @@
                     '/' => 'UserController@signInPage',
                     '/sign-in' => 'UserController@signInPage',
                     '/sign-out' => 'UserController@signOut',
-                    '/shopping-cart' => 'ProjectController@projectsPage',
+                    '/shopping-cart' => 'ShoppingCartController@shoppingCartPage',
                 ],
                 'POST' => [
                     '/sign-in' => 'UserController@verifyUser',
-                    '/products' => 'UserController@createUser',
-                    '/add-product' => 'ProjectController@createProject',
-                    '/remove-product' => 'TaskController@createTask',
+                    '/products' => 'ProductController@productspage',
+                    '/add-product' => 'ShoppingCartController@addProduct',
+                    '/remove-product' => 'ShoppingCartController@removeProduct',
                 ]
             ];
         }
 
-        public function getResponse(Request $request)
+        public function getResponse(RequestECommerce $request)
         {
             if (isset($this->routes[$request->getMethod()][$request->getRoute()])) {
                 $controllerInfo = explode('@', $this->routes[$request->getMethod()][$request->getRoute()]);
                 
                 $controllerName = $controllerInfo[0];
                 $controllerMethod = $controllerInfo[1];
-                                
-                require_once __DIR__ . '/../controllers/' . $controllerName . '.php';
-            
+                                            
                 $controller = new $controllerName();
             
                 $controller->$controllerMethod();
