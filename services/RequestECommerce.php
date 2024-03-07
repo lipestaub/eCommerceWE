@@ -1,6 +1,4 @@
 <?php
-    namespace services;
-
     class RequestECommerce
     {
         private string $method;

@@ -1,6 +1,4 @@
 <?php
-    namespace services;
-
     class RequestWE
     {
         private string $apiBase = 'https://ah.we.imply.com/';
@@ -13,7 +11,7 @@
 
             $curl = curl_init();
             curl_setopt_array($curl, [
-                CURLOPT_URL => $this->apiBase . 'products',
+                CURLOPT_URL => $this->apiBase . 'verify-user',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => $data,
@@ -23,13 +21,10 @@
                 ]
             ]);
 
-            var_dump(curl_exec($curl));
-
-            /*$response = curl_exec($curl);
-
+            $response = curl_exec($curl);
             $decoded = json_decode($response, true);
 
-            return $decoded['results'][0];*/
+            return $decoded['result'];
         }
     }
 ?>
