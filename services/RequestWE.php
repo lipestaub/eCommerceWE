@@ -26,5 +26,20 @@
 
             return $decoded['result'];
         }
+
+        public function getProducts() {
+            $curl = curl_init();
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $this->apiBase . 'products',
+                CURLOPT_CUSTOMREQUEST => 'GET',
+                CURLOPT_RETURNTRANSFER => true
+            ]);
+
+            $response = curl_exec($curl);
+            $decoded = json_decode($response, true);
+
+            return $decoded['result'];
+        }
+
     }
 ?>
