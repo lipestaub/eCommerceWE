@@ -10,3 +10,7 @@ function validateSignInFields(event) {
     
     return true;
 }
+
+function addProduct(productId) {
+    alert(productId);
+}
