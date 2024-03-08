@@ -13,8 +13,12 @@
     </header>
     <main>
         <?php foreach($products as $productId => $product) { ?>
-            <p>Product: </p>
-            <p for= "description"></p>
+            <div>
+                <img src="<?php echo $product['image']; ?>" alt="imagem do produto" height="100" width="100">
+                <p><?php echo $product['description']; ?></p>
+                <p>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></p>
+                <button>Comprar</button>
+            </div>
         <?php } ?>
     </main>
     <div>

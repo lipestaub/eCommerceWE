@@ -7,19 +7,21 @@
                 session_start();
             }
 
+            session_destroy();
+            session_start();
+
             if (!isset($_SESSION['products'])) {
                 $requestWE = new RequestWE();
-                $products = $requestWE->getProducts();
 
-                $_SESSION['products'] = array_map(function ($product) {
-                    return [
-                        $product['idproduto'] => [
-                            'description' => $product['dscproduto'],
-                            'price' => $product['preco'],
-                            'image' => $product['imagem']
-                        ]
+                foreach ($requestWE->getProducts() as $product) {
+                    $products[$product['idproduto']] = [
+                        'description' => $product['dscproduto'],
+                        'price' => floatval($product['preco']),
+                        'image' => $product['imagem'] ?? '../public/images/defaultProdutImage.png'
                     ];
-                }, $products);
+                }
+
+                $_SESSION['products'] = $products;
             }
 
             $productsPerPage = 15;
