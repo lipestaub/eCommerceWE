@@ -10,11 +10,11 @@
                     '/' => 'UserController@signInPage',
                     '/sign-in' => 'UserController@signInPage',
                     '/sign-out' => 'UserController@signOut',
+                    '/products' => 'ProductController@productsPage',
                     '/shopping-cart' => 'ShoppingCartController@shoppingCartPage',
                 ],
                 'POST' => [
                     '/sign-in' => 'UserController@verifyUser',
-                    '/products' => 'ProductController@productsPage',
                     '/add-product' => 'ShoppingCartController@addProduct',
                     '/remove-product' => 'ShoppingCartController@removeProduct',
                 ]
