@@ -12,18 +12,17 @@
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
-    <h1 class="centralizar">Bem-Vindo</h1>
-    <form class="centralizar" action="/sign-in" method="post" onsubmit="validateSignInFields(event);">
-        <label class="centralizar" for="email">E-mail:</label>
-        <br>
+    <div class="oval"></div>
+    <h1 class="centralize">Bem-vindo</h1>
+    <form class="centralize" action="/sign-in" method="post" onsubmit="validateSignInFields(event);">
+        <label for="email">E-mail:</label>
         <input class="inbox" type="email" name="email" id="email">
         <br>
-        <label class="centralizar" for="cpf">CPF:</label>
-        <br>
+        <label for="cpf">CPF:</label>
         <input class="inbox" type="text" name="cpf" id="cpf">
         <br>
         <br>
-        <input type="submit" value="Entrar">
+        <input class="button" type="submit" value="Entrar">
     </form>
 </body>
 </html>
