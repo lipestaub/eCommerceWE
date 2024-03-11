@@ -12,17 +12,21 @@
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
-    <div class="oval"></div>
-    <h1 class="centralize">Bem-vindo</h1>
-    <form class="centralize" action="/sign-in" method="post" onsubmit="validateSignInFields(event);">
-        <label for="email">E-mail:</label>
-        <input class="inbox" type="email" name="email" id="email">
-        <br>
-        <label for="cpf">CPF:</label>
-        <input class="inbox" type="text" name="cpf" id="cpf">
-        <br>
-        <br>
-        <input class="button" type="submit" value="Entrar">
-    </form>
+    <header>
+        <img class="circle" src="../public/images/Blue Circle.png" alt="blue circle" width ="150%" height = "500px">
+        <span class="centralize">Bem-vindo</span>
+    </header>
+    <main>
+        <form class="centralize" action="/sign-in" method="post" onsubmit="validateSignInFields(event);">
+            <label for="email">E-mail:</label>
+            <input class="inbox" type="email" name="email" id="email">
+            <br>
+            <label for="cpf">CPF:</label>
+            <input class="inbox" type="text" name="cpf" id="cpf">
+            <br>
+            <br>
+            <input class="button" type="submit" value="Entrar">
+        </form>
+    </main>
 </body>
 </html>
