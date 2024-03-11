@@ -34,11 +34,11 @@
                         <span>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></span>
                     </td>
                     <td>
-                        <span><?php echo $product['quantity']; ?></span>
+                        <input type="number" name="quantity" id="quantity" value="<?php echo $product['quantity']; ?>" min="1" oninput="updateQuantity('<?php echo $productId; ?>');">
                     </td>
                     <td>
                         <td>
-                            <span>R$ <?php echo number_format(floatval($product['price']) * $product['quantity'], 2, ',', '.'); ?></span>
+                            <span>R$ <?php echo number_format($product['subtotal'], 2, ',', '.'); ?></span>
                         </td>
                     </td>
                     <td>
@@ -49,5 +49,6 @@
         </table>
     </main>
     <span>Valor Total: <?php echo number_format($total, 2, ',', '.'); ?></span>
+    <a href="/invoice">Finalizar Compra</a>
 </body>
 </html>

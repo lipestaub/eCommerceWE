@@ -19,8 +19,11 @@
         }
 
         public function invoicePage() {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            
             $products = $_SESSION['shoppingCart']['products'];
-            $productsNumber = count($products);
             $total = $_SESSION['shoppingCart']['total'];
 
             include_once __DIR__ . '/../views/invoice.php';
@@ -49,7 +52,7 @@
                 $_SESSION['shoppingCart']['products'][$productId]['quantity'] += 1;
             }
 
-            $_SESSION['shoppingCart']['products'][$productId]['subtotal'] = floatval($_SESSION['shoppingCart']['products'][$productId]['price']) * $_SESSION['shoppingCart']['products'][$productId]['quantity'];
+            $this->calculateProductSubtotal($productId);
         }
 
         public function removeProduct(): void {
@@ -65,7 +68,15 @@
                 session_start();
             }
 
-            $_SESSION['shoppingCart']['products'][$_POST['productId']]['quantity'] = $_POST['quantity'];
+            $productId = $_POST['productId'];
+
+            $_SESSION['shoppingCart']['products'][$productId]['quantity'] = $_POST['quantity'];
+
+            $this->calculateProductSubtotal($productId);
+        }
+
+        private function calculateProductSubtotal(string $productId): void {
+            $_SESSION['shoppingCart']['products'][$productId]['subtotal'] = floatval($_SESSION['shoppingCart']['products'][$productId]['price']) * $_SESSION['shoppingCart']['products'][$productId]['quantity'];
         }
     }
 ?>

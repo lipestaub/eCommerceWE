@@ -12,7 +12,7 @@
                     '/sign-out' => 'UserController@signOut',
                     '/products' => 'ProductController@productsPage',
                     '/shopping-cart' => 'ShoppingCartController@shoppingCartPage',
-                    '/invoice' => 'ShoppingController@invoicePage'
+                    '/invoice' => 'ShoppingCartController@invoicePage'
                 ],
                 'POST' => [
                     '/sign-in' => 'UserController@verifyUser',

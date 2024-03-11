@@ -13,8 +13,8 @@ function validateSignInFields(event) {
 
 function addProduct(productId) {
     $.ajax({
-        url: "/add-product",
-        type: "POST",
+        url: '/add-product',
+        type: 'POST',
         data: {productId: productId},
         success: function(){
             alert('Produto inserido no carrinho!');
@@ -27,11 +27,10 @@ function addProduct(productId) {
 
 function removeProduct(productId) {
     $.ajax({
-        url: "/remove-product",
-        type: "POST",
+        url: '/remove-product',
+        type: 'POST',
         data: {productId: productId},
         success: function(){
-            alert('Produto removido do carrinho!');
             location.reload();
         },
         error: function(){
@@ -41,12 +40,16 @@ function removeProduct(productId) {
 }
 
 function updateQuantity(productId) {
+    const quantity = document.getElementById('quantity').value;
+
     $.ajax({
-        url: "/update-quantity",
-        type: "POST",
-        data: {productId: productId},
+        url: '/update-quantity',
+        type: 'POST',
+        data: {
+            productId: productId,
+            quantity: quantity
+        },
         success: function(){
-            alert('Produto removido do carrinho!');
             location.reload();
         },
         error: function(){
