@@ -11,7 +11,8 @@
                     '/sign-in' => 'UserController@signInPage',
                     '/sign-out' => 'UserController@signOut',
                     '/products' => 'ProductController@productsPage',
-                    '/shopping-cart' => 'ShoppingCartController@shoppingCartPage'
+                    '/shopping-cart' => 'ShoppingCartController@shoppingCartPage',
+                    '/invoice' => 'ShoppingController@invoicePage'
                 ],
                 'POST' => [
                     '/sign-in' => 'UserController@verifyUser',

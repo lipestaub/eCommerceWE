@@ -32,6 +32,7 @@ function removeProduct(productId) {
         data: {productId: productId},
         success: function(){
             alert('Produto removido do carrinho!');
+            location.reload();
         },
         error: function(){
             alert('Erro ao remover o produto do carrinho!');

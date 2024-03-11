@@ -7,9 +7,6 @@
                 session_start();
             }
 
-            session_destroy();
-            session_start();
-
             if (!isset($_SESSION['products'])) {
                 $requestWE = new RequestWE();
 
