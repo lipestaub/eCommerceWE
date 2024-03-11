@@ -12,5 +12,44 @@ function validateSignInFields(event) {
 }
 
 function addProduct(productId) {
-    alert(productId);
+    $.ajax({
+        url: "/add-product",
+        type: "POST",
+        data: {productId: productId},
+        success: function(){
+            alert('Produto inserido no carrinho!');
+        },
+        error: function(){
+            alert('Erro ao inserir o produto no carrinho!');
+        }
+    });
+}
+
+function removeProduct(productId) {
+    $.ajax({
+        url: "/remove-product",
+        type: "POST",
+        data: {productId: productId},
+        success: function(){
+            alert('Produto removido do carrinho!');
+        },
+        error: function(){
+            alert('Erro ao remover o produto do carrinho!');
+        }
+    });
+}
+
+function updateQuantity(productId) {
+    $.ajax({
+        url: "/update-quantity",
+        type: "POST",
+        data: {productId: productId},
+        success: function(){
+            alert('Produto removido do carrinho!');
+            location.reload();
+        },
+        error: function(){
+            alert('Erro ao remover o produto do carrinho!');
+        }
+    });
 }

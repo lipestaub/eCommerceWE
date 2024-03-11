@@ -1,5 +1,15 @@
 <?php
     class ShoppingCartController {
+        public function shoppingCartPage() {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $products = $_SESSION['shoppingCart'];
+
+            include_once __DIR__ . '/../views/shoppingCart.php';
+        }
+
         public function addProduct(): void {
             if (!isset($_SESSION)) {
                 session_start();
@@ -9,18 +19,16 @@
                 $_SESSION['shoppingCart'] = [];
             }
 
-            if (!isset($_SESSION['shoppingCart'][$_POST['idproduto']])) {
-                array_push($_SESSION['shoppingCart'], [
-                    $_POST['idproduto'] => [
-                        'description' => $_POST['dscproduto'],
-                        'price' => $_POST['preco'],
-                        'image' => $_POST['imagem'],
-                        'quantity' => 1
-                    ]
-                ]);
+            $productId = $_POST['productId'];
+
+            if (!isset($_SESSION['shoppingCart'][$productId])) {
+                $_SESSION['shoppingCart'][$productId] = [
+                    $_SESSION['products'][$productId],
+                    'quantity' => 1
+                ];
             }
             else {
-                $_SESSION['shoppingCart'][$_POST['idproduto']]['quantity'] += 1;
+                $_SESSION['shoppingCart'][$productId]['quantity'] += 1;
             }
         }
 
@@ -29,7 +37,7 @@
                 session_start();
             }
 
-            unset($_SESSION['shoppingCart'][$_POST['idproduto']]['quantity']);
+            unset($_SESSION['shoppingCart'][$_POST['productId']]);
         }
 
         public function updateQuantity(): void {
@@ -37,7 +45,7 @@
                 session_start();
             }
 
-            $_SESSION['shoppingCart'][$_POST['idproduto']]['quantity'] = $_POST['quantity'];
+            $_SESSION['shoppingCart'][$_POST['productId']]['quantity'] = $_POST['quantity'];
         }
     }
 ?>

@@ -11,12 +11,13 @@
                     '/sign-in' => 'UserController@signInPage',
                     '/sign-out' => 'UserController@signOut',
                     '/products' => 'ProductController@productsPage',
-                    '/shopping-cart' => 'ShoppingCartController@shoppingCartPage',
+                    '/shopping-cart' => 'ShoppingCartController@shoppingCartPage'
                 ],
                 'POST' => [
                     '/sign-in' => 'UserController@verifyUser',
                     '/add-product' => 'ShoppingCartController@addProduct',
                     '/remove-product' => 'ShoppingCartController@removeProduct',
+                    '/update-quantity' => 'ShoppingCartController@updateQuantity'
                 ]
             ];
         }
