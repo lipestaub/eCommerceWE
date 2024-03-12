@@ -30,17 +30,23 @@ function removeProduct(productId) {
         url: '/remove-product',
         type: 'POST',
         data: {productId: productId},
-        success: function(){
+        success: function() {
+            alert('Produto removido do carrinho!');
             location.reload();
         },
-        error: function(){
+        error: function() {
             alert('Erro ao remover o produto do carrinho!');
         }
     });
 }
 
 function updateQuantity(productId) {
-    const quantity = document.getElementById('quantity-' + productId).value;
+    const quantity = parseInt(document.getElementById('quantity-' + productId).value);
+
+    if (quantity === 0) {
+        this.removeProduct(productId);
+        return;
+    }
 
     $.ajax({
         url: '/update-quantity',
@@ -49,10 +55,10 @@ function updateQuantity(productId) {
             productId: productId,
             quantity: quantity
         },
-        success: function(){
+        success: function() {
             location.reload();
         },
-        error: function(){
+        error: function() {
             alert('Erro ao remover o produto do carrinho!');
         }
     });
