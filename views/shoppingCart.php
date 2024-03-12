@@ -21,7 +21,7 @@
     <main>
         <table>
             <tr>
-                <th class="noBorder"></th>
+                <th></th>
                 <th>Descrição</th>
                 <th>Preço</th>
                 <th>Quantidade</th>
@@ -29,7 +29,7 @@
             </tr>
             <?php foreach ($products as $productId => $product) { ?>
                 <tr>
-                    <td class="noBorder">
+                    <td>
                         <img class="border" src="<?php echo $product['image']; ?>" alt="imagem do produto" height="100" width="100">
                     </td>
                     <td>
