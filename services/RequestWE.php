@@ -3,7 +3,7 @@
     {
         private string $apiBase = 'https://ah.we.imply.com/';
 
-        public function getUserByEmailAndCPF(string $email, string $cpf) {
+        public function getUserByEmailAndCPF(string $email, string $cpf): array {
             $data = json_encode([
                 'email' => $email,
                 'cpf' => $cpf
@@ -27,7 +27,7 @@
             return $decoded['result'];
         }
 
-        public function getProducts() {
+        public function getProducts(): array {
             $curl = curl_init();
             curl_setopt_array($curl, [
                 CURLOPT_URL => $this->apiBase . 'products',
@@ -40,6 +40,5 @@
 
             return $decoded['result'];
         }
-
     }
 ?>

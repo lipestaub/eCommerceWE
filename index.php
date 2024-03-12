@@ -1,7 +1,6 @@
 <?php
     require_once './services/Router.php';
-    require_once './services/RequestECommerce.php';
 
     $router = new Router();    
-    $router->getResponse(new RequestECommerce());
+    $router->getResponse($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 ?>

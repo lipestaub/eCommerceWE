@@ -40,7 +40,7 @@ function removeProduct(productId) {
 }
 
 function updateQuantity(productId) {
-    const quantity = document.getElementById('quantity').value;
+    const quantity = document.getElementById('quantity-' + productId).value;
 
     $.ajax({
         url: '/update-quantity',
