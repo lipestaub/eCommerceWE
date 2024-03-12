@@ -3,8 +3,7 @@
     {
         private array $routes;
 
-        public function __construct()
-        {
+        public function __construct() {
             $this->routes = [
                 'GET' => [
                     '/' => 'UserController@signInPage',
@@ -23,10 +22,9 @@
             ];
         }
 
-        public function getResponse(RequestECommerce $request)
-        {
-            if (isset($this->routes[$request->getMethod()][$request->getRoute()])) {
-                $controllerInfo = explode('@', $this->routes[$request->getMethod()][$request->getRoute()]);
+        public function getResponse(string $method, string $url): void {
+            if (isset($this->routes[$method][$url])) {
+                $controllerInfo = explode('@', $this->routes[$method][$url]);
                 
                 $controllerName = $controllerInfo[0];
                 $controllerMethod = $controllerInfo[1];

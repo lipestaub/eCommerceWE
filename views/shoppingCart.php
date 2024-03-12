@@ -34,7 +34,7 @@
                         <span>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></span>
                     </td>
                     <td>
-                        <input type="number" name="quantity" id="quantity" value="<?php echo $product['quantity']; ?>" min="1" oninput="updateQuantity('<?php echo $productId; ?>');">
+                        <input type="number" name="quantity" id="quantity-<?php echo $productId; ?>" value="<?php echo $product['quantity']; ?>" min="1" oninput="updateQuantity('<?php echo $productId; ?>');">
                     </td>
                     <td>
                         <td>
@@ -47,8 +47,11 @@
                 </tr>
             <?php } ?>
         </table>
+        <br>
+        <span>Valor Total: <?php echo number_format($total, 2, ',', '.'); ?></span>
+        <br>
+        <br>
+        <a href="/invoice">Finalizar Compra</a>
     </main>
-    <span>Valor Total: <?php echo number_format($total, 2, ',', '.'); ?></span>
-    <a href="/invoice">Finalizar Compra</a>
 </body>
 </html>
