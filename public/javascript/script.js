@@ -41,25 +41,27 @@ function removeProduct(productId) {
 }
 
 function updateQuantity(productId) {
-    const quantity = parseInt(document.getElementById('quantity-' + productId).value);
+    const quantity = document.getElementById('quantity-' + productId).value;
 
-    if (quantity === 0) {
-        this.removeProduct(productId);
-        return;
-    }
-
-    $.ajax({
-        url: '/update-quantity',
-        type: 'POST',
-        data: {
-            productId: productId,
-            quantity: quantity
-        },
-        success: function() {
-            location.reload();
-        },
-        error: function() {
-            alert('Erro ao remover o produto do carrinho!');
+    if (quantity !== '') {
+        if (parseInt(quantity) === 0) {
+            removeProduct(productId);
+            return;
         }
-    });
+    
+        $.ajax({
+            url: '/update-quantity',
+            type: 'POST',
+            data: {
+                productId: productId,
+                quantity: quantity
+            },
+            success: function() {
+                location.reload();
+            },
+            error: function() {
+                alert('Erro ao remover o produto do carrinho!');
+            }
+        });
+    }
 }
