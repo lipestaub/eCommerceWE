@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .welcome {
     position: absolute;
     width: 100%;
@@ -37,7 +42,7 @@ a {
     font-weight: 600;
     font-size: 35px;
     color: #fff;
-    padding: 0px;
+    padding-left: 15px;
     margin: 0px;
 }
 
@@ -46,7 +51,7 @@ a {
     font-weight: 600;
     font-size: 35px;
     color: #fff;
-    padding: 0px;
+    padding-right: 15px;
     margin: 0px;
 }
 
@@ -100,8 +105,8 @@ label {
     transform: translate(-15%, -50%);
 }
 
-.square {
-    transform: translate(-5%, -5%);
+.header {
+    overflow: hidden;
 }
 
 .container {

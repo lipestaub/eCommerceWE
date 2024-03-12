@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <img class="square" src="/../public/images/Blue Square.png" alt="blue square" width ="150%" height = "160px">
+        <img src="../public/images/Blue Square.png" alt="blue square" width="100%" height = "160px">
         <span class="centralize title">Produtos</span>
         <div id="header">
             <a class="headerLeft" href="/sign-out"> <i class="fa-solid fa-right-from-bracket"></i> Sair</a>
