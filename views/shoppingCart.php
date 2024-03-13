@@ -20,7 +20,7 @@
     </header>
     <main>
         <table class="centralize">
-            <tr>
+            <tr class="descriptionCart">
                 <th></th>
                 <th>Descrição</th>
                 <th>Preço</th>
@@ -32,29 +32,31 @@
                 foreach ($products as $productId => $product) { 
                     $product = unserialize($product);
             ?>
-                <tr>
-                    <td>
-                        <img class="border" src="<?= $product->getImage(); ?>" alt="imagem do produto" height="100" width="100">
-                    </td>
-                    <td>
-                        <span><?= $product->getDescription(); ?></span>
-                    </td>
-                    <td>
-                        <span>R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
-                    </td>
-                    <td class="quantity">
-                        <button onclick="updateQuantity('<?= $productId; ?>', -1)">-</button>
-                        <span id="quantity-<?= $productId; ?>"><?= $product->getQuantity(); ?></span>
-                        <button onclick="updateQuantity('<?= $productId; ?>', 1)">+</button>
-                    </td>
+                    <tr class="info">
+                        <td>
+                            <img class="border" src="<?= $product->getImage(); ?>" alt="imagem do produto" height="100" width="100">
+                        </td>
+                        <td>
+                            <span><?= $product->getDescription(); ?></span>
+                        </td>
+                        <td>
+                            <span>R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
+                        </td>
+                        <td>
+                            <div class="quantity">
+                                <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', -1)"><i class="fa-solid fa-minus"></i></button>
+                                <span id="quantity-<?= $productId; ?>"><?= $product->getQuantity(); ?></span>
+                                <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', 1)"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </td>
 
-                    <td>
-                        <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
-                    </td>
-                    <td>
-                        <button class="removeProduct" onclick="removeProduct('<?= $productId; ?>');">Remover produto</button>
-                    </td>
-                </tr>
+                        <td>
+                            <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
+                        </td>
+                        <td>
+                            <button class="removeProduct" onclick="removeProduct('<?= $productId; ?>');">Remover produto</button>
+                        </td>
+                    </tr>
             <?php } ?>
         </table>
         <br>

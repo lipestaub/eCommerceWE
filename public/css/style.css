@@ -195,5 +195,27 @@ td {
 }
 
 .quantity {
-    
+    background-color: #fff;
+    margin: 10% 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.buttonQuantity {
+    background-color: #0181EB;
+    padding: 15px;
+    border: 0;
+    border-radius: 4px;
+}
+
+.descriptionCart {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    color: #000;
+    padding: 0px;
+    margin: 0px;
 }
