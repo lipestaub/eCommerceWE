@@ -13,9 +13,9 @@
 
                 foreach ($requestWE->getProducts() as $product) {
                     $products[$product['idproduto']] = serialize(new Product(
-                        $product['idproduto'],
-                        $product['dscproduto'],
-                        $product['preco'],
+                        $product['idproduto'] ?? '',
+                        $product['dscproduto'] ?? '',
+                        $product['preco'] ?? 0,
                         $product['imagem'] ?? '../public/images/defaultProdutImage.png'
                     ));
                 }

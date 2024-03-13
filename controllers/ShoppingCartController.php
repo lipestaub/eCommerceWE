@@ -18,6 +18,8 @@
             $productsNumber = count($products);
             $total = $_SESSION['shoppingCart']['total'];
 
+            unset($_SESSION['shoppingCart']);
+
             include_once __DIR__ . '/../views/shoppingCart.php';
         }
 
