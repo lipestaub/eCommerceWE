@@ -10,6 +10,10 @@
         <h1>Nota Fiscal</h1>
     </header>
     <main>
+        <div>
+            <span>Nome: <?= $user->getName(); ?></span>
+            <span>CPF: <?= $user->getCpf(); ?></span>
+        </div>
         <table>
             <tr>
                 <th>Descrição</th>
@@ -17,25 +21,28 @@
                 <th>Quantidade</th>
                 <th>Subtotal</th>
             </tr>
-            <?php foreach ($products as $productId => $product) { ?>
-                <tr>
-                    <td>
-                        <span><?php echo $product['description']; ?></span>
-                    </td>
-                    <td>
-                        <span>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></span>
-                    </td>
-                    <td>
-                    <span><?php echo $product['quantity']; ?></span>
-                    </td>
-                    <td>
+            <?php
+                foreach ($products as $productId => $product) {
+                    $product = unserialize($product);
+            ?>
+                    <tr>
                         <td>
-                            <span>R$ <?php echo number_format($product['subtotal'], 2, ',', '.'); ?></span>
+                            <span><?= $product->getDescription(); ?></span>
                         </td>
-                    </td>
+                        <td>
+                            <span>R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
+                        </td>
+                        <td>
+                        <span><?= $product->getQuantity(); ?></span>
+                        </td>
+                        <td>
+                            <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
+                        </td>
                 </tr>
             <?php } ?>
         </table>
+        <br>
+        <span>Valor Total: R$ <?= number_format($total, 2, ',', '.'); ?></span>
     </main>
 </body>
 </html>

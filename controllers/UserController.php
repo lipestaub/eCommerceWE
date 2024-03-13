@@ -28,7 +28,12 @@
                     session_start();
                 }
                 
-                $_SESSION['user'] = serialize(new User($userData['idpessoa'], $userData['nome'], $cpf, $email));
+                $_SESSION['user'] = serialize(new User(
+                    $userData['idpessoa'] ?? '',
+                    $userData['nome'] ?? '',
+                    $cpf,
+                    $email
+                ));
 
                 $this->redirectToProductsPage();
             }
