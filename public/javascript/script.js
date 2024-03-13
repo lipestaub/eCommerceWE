@@ -26,18 +26,20 @@ function addProduct(productId) {
 }
 
 function removeProduct(productId) {
-    $.ajax({
-        url: '/remove-product',
-        type: 'POST',
-        data: {productId: productId},
-        success: function() {
-            alert('Produto removido do carrinho!');
-            location.reload();
-        },
-        error: function() {
-            alert('Erro ao remover o produto do carrinho!');
-        }
-    });
+    if (confirm('Você realmente deseja remover o produto do carrinho?')) {
+        $.ajax({
+            url: '/remove-product',
+            type: 'POST',
+            data: {productId: productId},
+            success: function() {
+                alert('Produto removido do carrinho!');
+                location.reload();
+            },
+            error: function() {
+                alert('Erro ao remover o produto do carrinho!');
+            }
+        });
+    }
 }
 
 function updateQuantity(productId) {
