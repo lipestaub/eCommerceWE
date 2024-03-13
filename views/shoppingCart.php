@@ -22,7 +22,7 @@
     </header>
     <main>
         <?php if ($productsCount > 0) { ?>
-            <span class="descriptionCart"><?= $productsCount ?> produto(s)</span>
+            <span class="descriptionCart">Você possui <?= $productsCount ?> item(ns) no seu carrinho!</span>
             <table class="centralize">
                 <tr class="descriptionCart">
                     <th></th>
