@@ -19,13 +19,14 @@
         <span class="centralize title">Carrinho </span>
     </header>
     <main>
-        <table>
+        <table class="centralize">
             <tr>
                 <th></th>
                 <th>Descrição</th>
                 <th>Preço</th>
                 <th>Quantidade</th>
                 <th>Subtotal</th>
+                <th></th>
             </tr>
             <?php 
                 foreach ($products as $productId => $product) { 
@@ -48,16 +49,16 @@
                         <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
                     </td>
                     <td>
-                        <button onclick="removeProduct('<?= $productId; ?>');">Remover produto</button>
+                        <button class="removeProduct" onclick="removeProduct('<?= $productId; ?>');">Remover produto</button>
                     </td>
                 </tr>
             <?php } ?>
         </table>
         <br>
-        <span>Valor Total: <?= number_format($total, 2, ',', '.'); ?></span>
+        <span>Valor Total: R$ <?= number_format($total, 2, ',', '.'); ?></span>
         <br>
         <br>
-        <a href="/invoice">Finalizar Compra</a>
+        <button class="invoice" href="/invoice">Finalizar Compra</button>
     </main>
 </body>
 </html>

@@ -140,6 +140,7 @@ label {
 }
 
 .buy {
+    font-family: "Open Sans", sans-serif;
     border-radius: 10px;
     width: 150px;
     height: 60px;
@@ -150,3 +151,45 @@ label {
     border-color: #fff;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px solid #000;
+    border-bottom: 0px;
+    padding: 5px;
+}
+
+td {
+    border: 1px solid #000;
+    border-top: 0px;
+    padding: 5px;
+}
+
+.invoice {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+    width: 290px;
+    height: 60px;
+    font-weight: 600;
+    font-size: 30px;
+    background-color: #0181EB;
+    color: #fff;
+    border-color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.removeProduct {
+    font-family: "Open Sans", sans-serif;
+    border-radius: 10px;
+    width: 120px;
+    height: 70px;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #0181EB;
+    color: #fff;
+    border-color: #fff;
+}
