@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__ . '/../services/RequestWE.php';
+    require_once __DIR__ . '/../models/Product.php';
 
     class ProductController {
         public function productsPage() {
@@ -11,11 +12,12 @@
                 $requestWE = new RequestWE();
 
                 foreach ($requestWE->getProducts() as $product) {
-                    $products[$product['idproduto']] = [
-                        'description' => $product['dscproduto'],
-                        'price' => floatval($product['preco']),
-                        'image' => $product['imagem'] ?? '../public/images/defaultProdutImage.png'
-                    ];
+                    $products[$product['idproduto']] = serialize(new Product(
+                        $product['idproduto'],
+                        $product['dscproduto'],
+                        $product['preco'],
+                        $product['imagem'] ?? '../public/images/defaultProdutImage.png'
+                    ));
                 }
 
                 $_SESSION['products'] = $products;

@@ -27,31 +27,34 @@
                 <th>Quantidade</th>
                 <th>Subtotal</th>
             </tr>
-            <?php foreach ($products as $productId => $product) { ?>
+            <?php 
+                foreach ($products as $productId => $product) { 
+                    $product = unserialize($product);
+            ?>
                 <tr>
                     <td>
-                        <img class="border" src="<?php echo $product['image']; ?>" alt="imagem do produto" height="100" width="100">
+                        <img class="border" src="<?= $product->getImage(); ?>" alt="imagem do produto" height="100" width="100">
                     </td>
                     <td>
-                        <span><?php echo $product['description']; ?></span>
+                        <span><?= $product->getDescription(); ?></span>
                     </td>
                     <td>
-                        <span>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></span>
+                        <span>R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
                     </td>
                     <td>
-                        <input type="number" name="quantity" id="quantity-<?php echo $productId; ?>" value="<?php echo $product['quantity']; ?>" min="1" oninput="updateQuantity('<?php echo $productId; ?>');">
+                        <input type="number" name="quantity" id="quantity-<?= $productId; ?>" value="<?= $product->getQuantity(); ?>" min="1" oninput="updateQuantity('<?php echo $productId; ?>');">
                     </td>
                     <td>
-                        <span>R$ <?php echo number_format($product['subtotal'], 2, ',', '.'); ?></span>
+                        <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
                     </td>
                     <td>
-                        <button onclick="removeProduct('<?php echo $productId; ?>');">Remover produto</button>
+                        <button onclick="removeProduct('<?= $productId; ?>');">Remover produto</button>
                     </td>
                 </tr>
             <?php } ?>
         </table>
         <br>
-        <span>Valor Total: <?php echo number_format($total, 2, ',', '.'); ?></span>
+        <span>Valor Total: <?= number_format($total, 2, ',', '.'); ?></span>
         <br>
         <br>
         <a href="/invoice">Finalizar Compra</a>

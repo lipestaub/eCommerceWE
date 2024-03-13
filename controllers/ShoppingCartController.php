@@ -1,4 +1,7 @@
 <?php
+    require_once __DIR__ . '/../models/User.php';
+    require_once __DIR__ . '/../models/Product.php';
+
     class ShoppingCartController {
         public function shoppingCartPage() {
             if (!isset($_SESSION)) {
@@ -8,7 +11,7 @@
             $_SESSION['shoppingCart']['total'] = 0;
 
             foreach ($_SESSION['shoppingCart']['products'] as $productId => $product) {
-                $_SESSION['shoppingCart']['total'] += $_SESSION['shoppingCart']['products'][$productId]['subtotal'];
+                $_SESSION['shoppingCart']['total'] += unserialize($_SESSION['shoppingCart']['products'][$productId])->getSubtotal();;
             }
 
             $products = $_SESSION['shoppingCart']['products'];
@@ -23,6 +26,7 @@
                 session_start();
             }
             
+            $user = unserialize($_SESSION['user']);
             $products = $_SESSION['shoppingCart']['products'];
             $total = $_SESSION['shoppingCart']['total'];
 
@@ -41,16 +45,15 @@
             $productId = $_POST['productId'];
 
             if (!isset($_SESSION['shoppingCart']['products'][$productId])) {
-                $_SESSION['shoppingCart']['products'][$productId] = [
-                    'description' => $_SESSION['products'][$productId]['description'],
-                    'price' => $_SESSION['products'][$productId]['price'],
-                    'image' => $_SESSION['products'][$productId]['image'],
-                    'quantity' => 1
-                ];
+                $product = unserialize($_SESSION['products'][$productId]);
+                $product->setQuantity(1);
             }
             else {
-                $_SESSION['shoppingCart']['products'][$productId]['quantity'] += 1;
+                $product = unserialize($_SESSION['shoppingCart']['products'][$productId]);
+                $product->setQuantity($product->getQuantity() + 1);
             }
+
+            $_SESSION['shoppingCart']['products'][$productId] = serialize($product);
 
             $this->calculateProductSubtotal($productId);
         }
@@ -69,14 +72,20 @@
             }
 
             $productId = $_POST['productId'];
+            $product = unserialize($_SESSION['shoppingCart']['products'][$productId]);
 
-            $_SESSION['shoppingCart']['products'][$productId]['quantity'] = $_POST['quantity'];
+            $product->setQuantity(intval($_POST['quantity']));
+
+            $_SESSION['shoppingCart']['products'][$productId] = serialize($product);
 
             $this->calculateProductSubtotal($productId);
         }
 
         private function calculateProductSubtotal(string $productId): void {
-            $_SESSION['shoppingCart']['products'][$productId]['subtotal'] = floatval($_SESSION['shoppingCart']['products'][$productId]['price']) * $_SESSION['shoppingCart']['products'][$productId]['quantity'];
+            $product = unserialize($_SESSION['shoppingCart']['products'][$productId]);
+            $product->setSubtotal($product->getQuantity() * $product->getPrice());
+
+            $_SESSION['shoppingCart']['products'][$productId] = serialize($product);
         }
     }
 ?>

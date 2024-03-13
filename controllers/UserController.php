@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__ . '/../services/RequestWE.php';
+    require_once __DIR__ . '/../models/User.php';
 
     class UserController {
         public function signInPage() {
@@ -23,7 +24,11 @@
             $userData = $requestWE->getUserByEmailAndCPF($email, $cpf);
 
             if ($userData) {
-                $this->saveUserData($email, $cpf, $userData);
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+                
+                $_SESSION['user'] = serialize(new User($userData['idpessoa'], $userData['nome'], $cpf, $email));
 
                 $this->redirectToProductsPage();
             }
@@ -47,19 +52,6 @@
             $this->redirectToSignInPage();
         }
 
-        private function saveUserData(string $email, string $cpf, array $userData): void {
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-
-            $_SESSION['user'] = [
-                'id' => $userData['idpessoa'],
-                'name' => $userData['nome'],
-                'email' => $email,
-                'cpf' => $cpf
-            ];
-        }
-
         private function redirectToProductsPage(): void {
             header('Location: /products');
             exit();
@@ -70,3 +62,4 @@
             exit();
         }
     }
+?>

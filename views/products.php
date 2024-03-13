@@ -24,18 +24,18 @@
     </header>
     <main>
         <div class="container">
-            <?php foreach($products as $productId => $product) { ?>
-                <div class="class">
-                    <img class="border" src="<?php echo $product['image']; ?>" alt="imagem do produto" height="200" width="200">
-                    <div class="info"><?php echo $product['description']; ?></div>
-                    <div class="info">R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></div>
-                    <button class="buy" onclick="addProduct('<?php echo $productId; ?>');">Comprar</button>
-                </div>
+            <?php
+                 foreach($products as $productId => $product) {
+                    $product = unserialize($product);
+            ?>
+                    <div class="class">
+                        <img class="border" src="<?= $product->getImage(); ?>" alt="imagem do produto" height="200" width="200">
+                        <div class="info"><?= $product->getDescription(); ?></div>
+                        <div class="info">R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></div>
+                        <button class="buy" onclick="addProduct('<?= $productId; ?>');">Comprar</button>
+                    </div>
             <?php } ?>
         </div>
     </main>
-    <div>
-        
-    </div>
 </body>
 </html>
