@@ -42,9 +42,12 @@
                     <td>
                         <span>R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
                     </td>
-                    <td>
-                        <input type="number" name="quantity" id="quantity-<?= $productId; ?>" value="<?= $product->getQuantity(); ?>" min="1" oninput="updateQuantity('<?php echo $productId; ?>');">
+                    <td class="quantity">
+                        <button onclick="updateQuantity('<?= $productId; ?>', -1)">-</button>
+                        <span id="quantity-<?= $productId; ?>"><?= $product->getQuantity(); ?></span>
+                        <button onclick="updateQuantity('<?= $productId; ?>', 1)">+</button>
                     </td>
+
                     <td>
                         <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
                     </td>
@@ -58,7 +61,7 @@
         <span>Valor Total: R$ <?= number_format($total, 2, ',', '.'); ?></span>
         <br>
         <br>
-        <button class="invoice" href="/invoice">Finalizar Compra</button>
+        <a class="invoice" href="/invoice">Finalizar Compra</a>
     </main>
 </body>
 </html>
