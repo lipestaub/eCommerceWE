@@ -17,10 +17,10 @@
     <main>
         <form class="centralize" action="/sign-in" method="post" onsubmit="validateSignInFields(event);">
             <label class="email" for="email">E-mail</label>
-            <input class="inbox" type="email" name="email" id="email">
+            <input class="inbox" type="email" name="email" id="email" required>
             <br>
             <label class="cpf" for="cpf">CPF</label>
-            <input class="inbox" type="text" name="cpf" id="cpf">
+            <input class="inbox" type="text" name="cpf" id="cpf" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
             <br>
             <br>
             <input class="signIn" type="submit" value="Entrar">
