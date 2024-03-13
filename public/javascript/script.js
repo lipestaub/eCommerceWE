@@ -17,7 +17,7 @@ function addProduct(productId) {
         type: 'POST',
         data: {productId: productId},
         error: function(){
-            alert('Erro ao inserir o produto no carrinho!');
+            alert('Ocorreu um erro ao inserir o produto no carrinho. Tente novamente.');
         }
     });
 }
@@ -29,7 +29,7 @@ function removeProduct(productId) {
             type: 'POST',
             data: {productId: productId},
             error: function() {
-                alert('Erro ao remover o produto do carrinho!');
+                alert('Ocorreu um erro ao remover o produto do carrinho. Tente novamente.');
             }
         });
     }
@@ -56,7 +56,7 @@ function updateQuantity(productId, changeValue) {
             location.reload();
         },
         error: function() {
-            alert('Erro ao atualizar a quantidade do produto!');
+            alert('Ocorreu um erro ao atualizar a quantidade do produto do carrinho. Tente novamente.');
         }
     });
 }
