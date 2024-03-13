@@ -9,6 +9,10 @@
                 session_start();
             }
 
+            if (!isset($_SESSION['user'])) {
+                $this->redirectToSignInPage();
+            }
+
             if (!isset($_SESSION['shoppingCart'])) {
                 $_SESSION['shoppingCart'] = serialize(new ShoppingCart());
             }
@@ -22,8 +26,7 @@
             $_SESSION['shoppingCart'] = serialize($shoppingCart);
 
             $products = $products;
-            $productsNumber = $this->getShoppingCartProductQuantity($products);
-
+            $productsCount = $this->getShoppingCartProductQuantity($products);
             $total = $shoppingCart->getTotalValue();
 
             include_once __DIR__ . '/../views/shoppingCart.php';
@@ -32,6 +35,10 @@
         public function invoicePage() {
             if (!isset($_SESSION)) {
                 session_start();
+            }
+
+            if (!isset($_SESSION['user'])) {
+                $this->redirectToSignInPage();
             }
 
             $shoppingCart = unserialize($_SESSION['shoppingCart']);
@@ -104,6 +111,11 @@
             $_SESSION['shoppingCart'] = serialize($shoppingCart);
 
             $this->calculateProductSubtotal($productId);
+        }
+
+        private function redirectToSignInPage(): void {
+            header('Location: /sign-in');
+            exit();
         }
 
         private function getShoppingCartTotalValue(array $products) {

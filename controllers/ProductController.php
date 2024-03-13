@@ -7,6 +7,11 @@
             if (!isset($_SESSION)) {
                 session_start();
             }
+
+            if (!isset($_SESSION['user'])) {
+                header('Location: /sign-in');
+                exit();
+            }
             
             if (!isset($_SESSION['products'])) {
                 $requestWE = new RequestWE();
