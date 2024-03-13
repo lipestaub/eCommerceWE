@@ -18,8 +18,6 @@
             $productsNumber = count($products);
             $total = $_SESSION['shoppingCart']['total'];
 
-            unset($_SESSION['shoppingCart']);
-
             include_once __DIR__ . '/../views/shoppingCart.php';
         }
 
@@ -31,6 +29,8 @@
             $user = unserialize($_SESSION['user']);
             $products = $_SESSION['shoppingCart']['products'];
             $total = $_SESSION['shoppingCart']['total'];
+
+            unset($_SESSION['shoppingCart']);
 
             include_once __DIR__ . '/../views/invoice.php';
         }
