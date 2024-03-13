@@ -50,6 +50,10 @@
                 session_start();
             }
 
+            if (!isset($_SESSION['shoppingCart'])) {
+                $_SESSION['shoppingCart'] = serialize(new ShoppingCart());
+            }
+
             $shoppingCart = unserialize($_SESSION['shoppingCart']);
             $products = $shoppingCart->getProducts();
 
