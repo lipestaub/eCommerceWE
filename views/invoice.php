@@ -22,9 +22,7 @@
                 <th>Subtotal</th>
             </tr>
             <?php
-                foreach ($products as $productId => $product) {
-                    $product = unserialize($product);
-            ?>
+                foreach ($products as $productId => $product) { ?>
                     <tr>
                         <td>
                             <span><?= $product->getDescription(); ?></span>

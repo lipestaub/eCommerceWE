@@ -7,7 +7,8 @@
         private ?int $quantity;
         private ?float $subtotal;
 
-        public function __construct(string $id, string $description, float $price, string $image, ?int $quantity = null, ?float $subtotal = null) {
+        public function __construct(string $id, string $description, float $price, string $image, ?int $quantity = 0, ?float $subtotal = 0) {
+            $this->id = $id;
             $this->description = $description;
             $this->price = $price;
             $this->image = $image;

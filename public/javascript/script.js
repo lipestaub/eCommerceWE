@@ -51,8 +51,6 @@ function updateQuantity(productId, changeValue) {
         return;
     }
 
-        quantityElement.innerText = newQuantity;
-
         $.ajax({
             url: '/update-quantity',
             type: 'POST',
@@ -61,6 +59,7 @@ function updateQuantity(productId, changeValue) {
                 quantity: newQuantity
             },
             success: function() {
+                quantityElement.innerText = newQuantity;
                 location.reload();
             },
             error: function() {
