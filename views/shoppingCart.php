@@ -17,6 +17,9 @@
     <header>
         <img src="../public/images/Blue Square.png" alt="blue square" width="100%" height = "160px">
         <span class="centralize title">Carrinho </span>
+        <div id="header">
+            <a class="headerLeft" href="/products"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Produtos</a>
+        </div>
     </header>
     <main>
         <table class="centralize">
@@ -33,6 +36,7 @@
                     $product = unserialize($product);
             ?>
                     <tr class="info">
+                        
                         <td>
                             <img class="border" src="<?= $product->getImage(); ?>" alt="imagem do produto" height="100" width="100">
                         </td>
@@ -44,12 +48,11 @@
                         </td>
                         <td>
                             <div class="quantity">
-                                <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', -1)"><i class="fa-solid fa-minus"></i></button>
+                                <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', -1)"><i class="fa-solid fa-minus" style="color: #ffffff;"></i></button>
                                 <span id="quantity-<?= $productId; ?>"><?= $product->getQuantity(); ?></span>
-                                <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', 1)"><i class="fa-solid fa-plus"></i></button>
+                                <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', 1)"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
                             </div>
                         </td>
-
                         <td>
                             <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
                         </td>
@@ -60,7 +63,7 @@
             <?php } ?>
         </table>
         <br>
-        <span>Valor Total: R$ <?= number_format($total, 2, ',', '.'); ?></span>
+        <span class="descriptionCart">Valor Total: <span class="total">R$ <?= number_format($total, 2, ',', '.'); ?></span></span>
         <br>
         <br>
         <a class="invoice" href="/invoice">Finalizar Compra</a>
