@@ -42,12 +42,15 @@ function removeProduct(productId) {
     }
 }
 
-function updateQuantity(productId, change) {
-    var quantityElement = document.getElementById('quantity-' + productId);
-    var currentQuantity = parseInt(quantityElement.innerText);
-    var newQuantity = currentQuantity + change;
+function updateQuantity(productId, changeValue) {
+    const quantityElement = document.getElementById('quantity-' + productId);
+    const newQuantity = parseInt(quantityElement.innerText) + parseInt(changeValue);
 
-    if (newQuantity >= 1) {
+    if (newQuantity === 0) {
+        removeProduct(productId);
+        return;
+    }
+
         quantityElement.innerText = newQuantity;
 
         $.ajax({
@@ -64,7 +67,4 @@ function updateQuantity(productId, change) {
                 alert('Erro ao atualizar a quantidade do produto!');
             }
         });
-    } else if (newQuantity === 0) {
-        removeProduct(productId);
-    }
 }
