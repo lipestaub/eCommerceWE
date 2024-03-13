@@ -76,6 +76,7 @@ input {
     color: #fff;
     transform: translateY(-350%);
     border-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 label {
@@ -150,6 +151,7 @@ label {
     background-color: #0181EB;
     color: #fff;
     border-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 table {
@@ -226,4 +228,6 @@ td {
     padding-top: 15px;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
+
