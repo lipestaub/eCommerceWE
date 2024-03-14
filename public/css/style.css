@@ -16,6 +16,12 @@ body {
     margin: 0px;
 }
 
+p {
+    color: #fff;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+}
+
 .title {
     position: absolute;
     width: 100%;
@@ -246,6 +252,7 @@ td {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    margin-bottom: 35px;
 }
 .pagination a {
     color: #000;
