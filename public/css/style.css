@@ -184,6 +184,15 @@ td {
     padding: 5px;
 }
 
+.info span.cart {
+    color: #fff;
+}
+
+.info span.bill {
+    font-weight: 300;
+    color: #fff;
+}
+
 .removeProduct {
     font-family: "Open Sans", sans-serif;
     border-radius: 10px;

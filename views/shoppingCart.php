@@ -39,20 +39,20 @@
                             <img class="border" src="<?= $product->getImage(); ?>" alt="imagem do produto" height="100" width="100">
                         </td>
                         <td>
-                            <span><?= $product->getDescription(); ?></span>
+                            <span class="cart"><?= $product->getDescription(); ?></span>
                         </td>
                         <td>
-                            <span>R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
+                            <span class="cart">R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
                         </td>
                         <td>
-                            <div class="quantity">
+                            <div class="cart quantity">
                                 <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', -1)"><i class="fa-solid fa-minus" style="color: #ffffff;"></i></button>
-                                <span id="quantity-<?= $productId; ?>"><?= $product->getQuantity(); ?></span>
+                                <span class="cart" id="quantity-<?= $productId; ?>"><?= $product->getQuantity(); ?></span>
                                 <button class="buttonQuantity" onclick="updateQuantity('<?= $productId; ?>', 1)"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></button>
                             </div>
                         </td>
                         <td>
-                            <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
+                            <span class="cart">R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
                         </td>
                         <td>
                             <button class="removeProduct" onclick="removeProduct('<?= $productId; ?>');">Remover produto</button>

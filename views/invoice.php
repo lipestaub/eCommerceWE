@@ -34,16 +34,16 @@
                 foreach ($products as $productId => $product) { ?>
                     <tr class="info">
                         <td>
-                            <span><?= $product->getDescription(); ?></span>
+                            <span class="bill"><?= $product->getDescription(); ?></span>
                         </td>
                         <td>
-                            <span>R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
+                            <span class="bill">R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></span>
                         </td>
                         <td>
-                        <span><?= $product->getQuantity(); ?></span>
+                        <span class="bill"><?= $product->getQuantity(); ?></span>
                         </td>
                         <td>
-                            <span>R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
+                            <span class="bill">R$ <?= number_format($product->getSubtotal(), 2, ',', '.'); ?></span>
                         </td>
                 </tr>
             <?php } ?>
