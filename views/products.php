@@ -44,11 +44,14 @@
             <a id="pageNumber-5">5</a>
             <a id="next">&raquo;</a>
         </div>
+        <?php if (isset($_SESSION['page'])) { ?>
+            <script>
+                document.getElementById('pageNumber-' + <?= $_SESSION['page']; ?>).classList.add('active');
+            </script>
+        <?php } ?>
     </main>
-    <?php if (isset($_SESSION['page'])) { ?>
-        <script>
-            document.getElementById('pageNumber-' + <?= $_SESSION['page']; ?>).classList.add('active');
-        </script>
-    <?php } ?>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/CaioBalc" target="_blank" rel="noopener noreferrer">Caio Balczarek</a> e <a href="https://github.com/lipestaub" target="_blank" rel="noopener noreferrer">Felipe Ariel Staub</a></p>
+    </footer>
 </body>
 </html>

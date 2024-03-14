@@ -69,5 +69,8 @@
             <span class="centralize emptyCart">Carrinho vazio.</span>
         <?php } ?>
     </main>
+    <footer>
+        <p>Desenvolvido por <a href="https://github.com/CaioBalc" target="_blank" rel="noopener noreferrer">Caio Balczarek</a> e <a href="https://github.com/lipestaub" target="_blank" rel="noopener noreferrer">Felipe Ariel Staub</a></p>
+    </footer>
 </body>
 </html>
