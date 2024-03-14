@@ -30,7 +30,7 @@
                     <div class="class">
                         <img class="border" src="<?= $product->getImage(); ?>" alt="imagem do produto" height="200" width="200">
                         <div class="info"><?= $product->getDescription(); ?></div>
-                        <div class="info">R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></div>
+                        <div class="price">R$ <?= number_format($product->getPrice(), 2, ',', '.'); ?></div>
                         <button class="buy" onclick="addProduct('<?= $productId; ?>');">Comprar</button>
                     </div>
             <?php } ?>

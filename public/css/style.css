@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #005092;
 }
 
 .welcome {
@@ -56,10 +57,11 @@ a {
 }
 
 .inbox {
+    border: 0px;
     border-radius: 5px;
     width: 450px;
     height: 40px;
-    transform: translateY(-500%);
+    transform: translateY(-540%);
 }
 
 input {
@@ -75,7 +77,7 @@ input {
     background-color: #0181EB;
     color: #fff;
     transform: translateY(-350%);
-    border-color: #fff;
+    border-color: #005092;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
@@ -88,7 +90,7 @@ label {
     font-family: "Open Sans", sans-serif;
     font-weight: 100;
     font-size: 45px;
-    color: #000;
+    color: #fff;
     padding: 0px;
     margin: 0px;
 }
@@ -126,19 +128,30 @@ label {
     text-align: center;
     padding: 10px;
     margin: 10px;
-    border: 1px solid #000;
+    border: 1px solid #fff;
     border-radius: 5px;
+    background-color: #fff;
 }
 
 .border {
     border: 1px solid;
-    border-color: #000;
+    border-color: #fff;
     border-radius: 5px;
 }
 
-.info {
+.info{
     font-family: "Open Sans", sans-serif;
-    font-weight: 100;
+    font-weight: 600;
+    font-size: 30px;
+    color: #000;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.price{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
     font-size: 30px;
     color: #000;
     padding: 0px;
@@ -180,11 +193,11 @@ td {
     font-size: 20px;
     background-color: #0181EB;
     color: #fff;
-    border-color: #fff;
+    border-color: #005092;
 }
 
 .quantity {
-    background-color: #fff;
+    background-color: #0181EB;
     margin: 15px;
     display: flex;
     justify-content: space-between;
@@ -204,7 +217,7 @@ td {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 25px;
-    color: #000;
+    color: #fff;
     padding: 0px;
     margin: 0px;
 }
@@ -213,28 +226,33 @@ td {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
     font-size: 25px;
-    color: #000;
+    color: #fff;
     padding: 0px;
     margin: 0px;
 }
 
 .pagination {
+    font-family: "Open Sans", sans-serif;
     display: inline-block;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 .pagination a {
-    color: black;
+    color: #000;
+    background-color: #fff;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    transition: background-color .3s;
+    transition: background-color 0.3s;
     border: 1px solid #ddd;
     margin: 0 4px;
+    border-radius: 5px;
 }
 .pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
+    background-color: #0181EB;
+    color: #fff;
+    border: 1px solid #0181EB;
 }
 
 .pagination a:hover:not(.active) {
@@ -263,7 +281,7 @@ td {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 25px;
-    color: #000;
+    color: #fff;
     padding: 0px;
     margin: 0px;
 }
