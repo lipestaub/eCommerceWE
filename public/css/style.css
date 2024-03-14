@@ -302,3 +302,22 @@ td {
     padding: 0px;
     margin: 0px;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #0181EB;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer p a:hover {
+    font-weight: bold;
+}
