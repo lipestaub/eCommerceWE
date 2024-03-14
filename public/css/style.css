@@ -237,6 +237,7 @@ td {
     color: #fff;
     padding: 0px;
     margin: 0px;
+    margin-bottom: 100px;
 }
 
 .total {
@@ -320,4 +321,8 @@ footer p a {
 
 footer p a:hover {
     font-weight: bold;
+}
+
+.space {
+    margin-bottom: 150px;
 }

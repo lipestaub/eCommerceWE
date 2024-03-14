@@ -50,6 +50,7 @@
         </table>
         <br>
         <span class="descriptionCart">Valor Total: <span class="total">R$ <?= number_format($total, 2, ',', '.'); ?></span></span>
+        <div class="space"></div>
     </main>
     <footer>
         <p>Desenvolvido por <a href="https://github.com/CaioBalc" target="_blank" rel="noopener noreferrer">Caio Balczarek</a> e <a href="https://github.com/lipestaub" target="_blank" rel="noopener noreferrer">Felipe Ariel Staub</a></p>
