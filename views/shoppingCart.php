@@ -17,7 +17,7 @@
         <img src="../public/images/Blue Square.png" alt="retângulo azul" width="100%" height="160px">
         <span class="centralize title">Carrinho</span>
         <div id="header">
-            <a class="headerLeft" href="/products"><i class="fa-solid fa-house" style="color: #ffffff;"></i> Produtos</a>
+            <a class="headerLeft" href="/products">Produtos <i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
         </div>
     </header>
     <main>
@@ -66,7 +66,7 @@
             <br>
             <a class="invoice" href="/invoice">Finalizar Compra</a>
         <?php } else { ?>
-            <span>Carrinho vazio.</span>
+            <span class="centralize emptyCart">Carrinho vazio.</span>
         <?php } ?>
     </main>
 </body>
