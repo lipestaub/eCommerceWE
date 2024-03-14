@@ -41,6 +41,11 @@
                 $this->redirectToSignInPage();
             }
 
+            if (!isset($_SESSION['shoppingCart'])) {
+                header('Location: /sign-in');
+                exit();
+            }
+
             $shoppingCart = unserialize($_SESSION['shoppingCart']);
             
             $user = unserialize($_SESSION['user']);
