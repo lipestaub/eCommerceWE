@@ -17,7 +17,8 @@
                     '/sign-in' => 'UserController@verifyUser',
                     '/add-product' => 'ShoppingCartController@addProduct',
                     '/remove-product' => 'ShoppingCartController@removeProduct',
-                    '/update-quantity' => 'ShoppingCartController@updateQuantity'
+                    '/update-quantity' => 'ShoppingCartController@updateQuantity',
+                    '/change-page' => 'PageController@changePage'
                 ]
             ];
         }

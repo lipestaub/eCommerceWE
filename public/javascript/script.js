@@ -60,3 +60,90 @@ function updateQuantity(productId, changeValue) {
         }
     });
 }
+
+if (window.location.pathname === '/products') {
+    const active = document.querySelector('.active');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const pageNumberButtons = document.querySelectorAll('[id^="pageNumber-"]');
+
+    prevButton.addEventListener('click', () => {
+        const page = parseInt(active.innerText);
+
+        if (page > 1) {
+            const newPage = page - 1;
+            const newActiveElement = document.getElementById('pageNumber-' + newPage);
+            const oldActiveElement = document.getElementById('pageNumber-' + page);
+
+            $.ajax({
+                url: '/change-page',
+                type: 'POST',
+                data: {
+                    page: newPage
+                },
+                success: function() {
+                    oldActiveElement.classList.remove('active');
+                    newActiveElement.classList.add('active');
+
+                    location.reload();
+                },
+                error: function() {
+                    alert('Ocorreu um erro ao atualizar a página. Tente novamente.');
+                }
+            });
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        const page = parseInt(active.innerText);
+
+        if (page < 5) {
+            const newPage = page + 1;
+            const newActiveElement = document.getElementById('pageNumber-' + newPage);
+            const oldActiveElement = document.getElementById('pageNumber-' + page);
+
+            $.ajax({
+                url: '/change-page',
+                type: 'POST',
+                data: {
+                    page: newPage
+                },
+                success: function() {
+                    oldActiveElement.classList.remove('active');
+                    newActiveElement.classList.add('active');
+
+                    location.reload();
+                },
+                error: function() {
+                    alert('Ocorreu um erro ao atualizar a página. Tente novamente.');
+                }
+            });
+        }
+    });
+
+    pageNumberButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const newPage = parseInt(button.innerText);
+
+            const newActiveElement = document.getElementById('pageNumber-' + newPage);
+            const oldActiveElement = document.getElementById('pageNumber-' + active.innerText);
+
+            $.ajax({
+                url: '/change-page',
+                type: 'POST',
+                data: {
+                    page: newPage
+                },
+                success: function() {
+                    oldActiveElement.classList.remove('active');
+                    newActiveElement.classList.add('active');
+
+                    location.reload();
+                },
+                error: function() {
+                    alert('Ocorreu um erro ao atualizar a página. Tente novamente.');
+                }
+            });
+        });
+    });
+}

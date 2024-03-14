@@ -30,6 +30,10 @@
 
             $productsPerPage = 15;
 
+            if (!isset($_SESSION['page'])) {
+                $_SESSION['page'] = 1;
+            }
+
             $offset = $_SESSION['page'] === 1 ? 0 : $_SESSION['page'] * $productsPerPage;
 
             $products = array_slice($_SESSION['products'], $offset, $productsPerPage);

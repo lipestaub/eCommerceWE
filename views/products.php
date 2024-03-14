@@ -9,7 +9,7 @@
     <link href="../public/css/style.css" rel="stylesheet">
     <link href="../public/fontawesome-free-6.5.1-web/css/all.min.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../public/javascript/script.js" type="application/javascript"></script>
+    <script src="../public/javascript/script.js" type="application/javascript" defer></script>
     <title>Produtos</title>
 </head>
 <body>
@@ -36,14 +36,19 @@
             <?php } ?>
         </div>
         <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">&raquo;</a>
+            <a id="prev">&laquo;</a>
+            <a id="pageNumber-1">1</a>
+            <a id="pageNumber-2">2</a>
+            <a id="pageNumber-3">3</a>
+            <a id="pageNumber-4">4</a>
+            <a id="pageNumber-5">5</a>
+            <a id="next">&raquo;</a>
         </div>
     </main>
+    <?php if (isset($_SESSION['page'])) { ?>
+        <script>
+            document.getElementById('pageNumber-' + <?= $_SESSION['page']; ?>).classList.add('active');
+        </script>
+    <?php } ?>
 </body>
 </html>
