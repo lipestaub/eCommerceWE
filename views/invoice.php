@@ -23,6 +23,7 @@
             <span class="descriptionCart">Nome: <span class="total"><?= $user->getName(); ?></span></span>
             <span class="descriptionCart">CPF: <span class="total"><?= $user->getCpf(); ?></span></span>
         </div>
+        <br>
         <table class="centralize">
             <tr class="descriptionCart">
                 <th>Descrição</th>

@@ -11,6 +11,7 @@
                     '/sign-out' => 'UserController@signOut',
                     '/products' => 'ProductController@productsPage',
                     '/shopping-cart' => 'ShoppingCartController@shoppingCartPage',
+                    '/clean-shopping-cart' => 'ShoppingCartController@cleanShoppingCart',
                     '/invoice' => 'ShoppingCartController@invoicePage'
                 ],
                 'POST' => [
@@ -33,7 +34,6 @@
                 require_once __DIR__ . '/../controllers/' . $controllerName . '.php';
                                             
                 $controller = new $controllerName();
-            
                 $controller->$controllerMethod();
             } 
             else {

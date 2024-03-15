@@ -32,6 +32,16 @@
             include_once __DIR__ . '/../views/shoppingCart.php';
         }
 
+        public function cleanShoppingCart() {
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            unset($_SESSION['shoppingCart']);
+
+            $this->shoppingCartPage();
+        }
+
         public function invoicePage() {
             if (!isset($_SESSION)) {
                 session_start();

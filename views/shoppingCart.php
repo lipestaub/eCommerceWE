@@ -18,7 +18,7 @@
         <span class="centralize title">Carrinho</span>
         <div id="header">
             <a class="headerLeft" href="/products">Produtos <i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
-            <a class="headerRight" href="">Limpar</a>
+            <a class="headerRight" href="/clean-shopping-cart">Limpar Carrinho <i class="fa-solid fa-trash" style="color: #ffffff;"></i></a>
         </div>
     </header>
     <main>
